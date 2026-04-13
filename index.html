@@ -708,7 +708,7 @@
       overflow: hidden;
       min-height: 200px;
     }
-    .portfolio-item:first-child .portfolio-placeholder { min-height: 100%; aspect-ratio: unset; height: 420px; }
+    .portfolio-item:first-child .portfolio-placeholder { min-height: 100%; aspect-ratio: 4/5; height: 200px; }
     .portfolio-placeholder::before {
       content: '';
       position: absolute;
@@ -1176,7 +1176,7 @@
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .portfolio-grid { grid-template-columns: 1fr 1fr; }
       .portfolio-item:first-child { grid-row: span 1; grid-column: span 2; }
-      .portfolio-item:first-child .portfolio-placeholder { height: 260px; }
+      .portfolio-item:first-child .portfolio-placeholder { height: 2o0px; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
@@ -1208,7 +1208,7 @@
   <nav id="navbar">
     <div class="container">
       <div class="nav-inner">
-        <a href="#hero" class="nav-logo">Victor<span>.</span></a>
+        <a href="#hero" class="nav-logo">Muraya<span>.</span></a>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
@@ -1274,7 +1274,6 @@
       <div class="about-grid">
         <div class="about-image-wrap reveal">
          <img src="Gemini_Generated_Image_dyxx8dyxx8dyxx8d.png" alt="Victor Muraya" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;">
-          <input type="file" id="aboutImgUpload" class="portfolio-upload" accept="image/*" onchange="replaceImage(this, 'aboutImgDisplay')"/>
           <div class="about-frame"></div>
           <div class="about-badge">
             <div class="about-badge-num">4+</div>
@@ -1465,21 +1464,18 @@
       <div class="portfolio-grid">
         <!-- Large item -->
         <div class="portfolio-item reveal" onclick="document.getElementById('upload-0').click()">
-          <img src="Silk.png" alt="Studio Portrait" style="width:100%;height:420px;object-fit:contain;display:block;">
+          <img src="Silk.png" alt="Studio Portrait" style="width:100%;aspect-ratio:1/1;px;object-fit:cover;display:block;">
           <div class="portfolio-overlay"><span class="portfolio-overlay-text">Abstract</span></div>
-          <input type="file" id="upload-0" class="portfolio-upload" accept="image/*" onchange="replacePortfolioImage(this, 0)"/>
         </div>
         <!-- Item 2 -->
         <div class="portfolio-item reveal reveal-delay-1" onclick="document.getElementById('upload-1').click()">
           <img src="Gemini_Generated_Image_62w4oi62w4oi62w4.png" alt="Script Reading" style="width:100%;aspect-ratio:1/1;px;object-fit:cover;display:block;">
           <div class="portfolio-overlay"><span class="portfolio-overlay-text">Script Reading</span></div>
-          <input type="file" id="upload-1" class="portfolio-upload" accept="image/*" onchange="replacePortfolioImage(this, 1)"/>
         </div>
         <!-- Item 3 -->
         <div class="portfolio-item reveal reveal-delay-2" onclick="document.getElementById('upload-2').click()">
           <img src="Gemini_Generated_Image_1ysvn31ysvn31ysv.png" alt="Abstract Mood" style="width:100%;aspect-ratio:1/1;object-fit:cover;display:block;">
           <div class="portfolio-overlay"><span class="portfolio-overlay-text">Studio Portrait</span></div>
-          <input type="file" id="upload-2" class="portfolio-upload" accept="image/*" onchange="replacePortfolioImage(this, 2)"/>
         </div>
       </div>
     </div>
@@ -1504,8 +1500,8 @@
     <div class="logo-placeholder" id="logo-placeholder-1">
     </div>
     <div class="logo-overlay">
-      <span class="logo-overlay-title" contenteditable="true">Kelvin Maina</span>
-      <span class="logo-overlay-desc" contenteditable="true">Content Creator</span>
+      <span class="logo-overlay-title" >Kelvin Maina</span>
+      <span class="logo-overlay-desc" >Content Creator</span>
     </div>
   </div>
 
@@ -1516,7 +1512,7 @@
     <div class="logo-placeholder" id="logo-placeholder-2">
     </div>
     <div class="logo-overlay">
-      <span class="logo-overlay-title" contenteditable="true">Royco</span>
+      <span class="logo-overlay-title" >Royco</span>
     </div>
   </div>
 
@@ -1527,7 +1523,7 @@
     <div class="logo-placeholder" id="logo-placeholder-3">
     </div>
     <div class="logo-overlay">
-      <span class="logo-overlay-title" contenteditable="true">Ramtons</span>
+      <span class="logo-overlay-title" >Ramtons</span>
     </div>
   </div>
 
@@ -1538,7 +1534,7 @@
     <div class="logo-placeholder" id="logo-placeholder-4">
     </div>
     <div class="logo-overlay">
-      <span class="logo-overlay-title" contenteditable="true">Bolt Food</span>
+      <span class="logo-overlay-title" >Bolt Food</span>
     </div>
   </div>
 
@@ -1549,7 +1545,7 @@
     <div class="logo-placeholder" id="logo-placeholder-5">
     </div>
     <div class="logo-overlay">
-      <span class="logo-overlay-title" contenteditable="true">Amaize</span>
+      <span class="logo-overlay-title" >Amaize</span>
     </div>
   </div>
 
@@ -1560,7 +1556,7 @@
     <div class="logo-placeholder" id="logo-placeholder-6">
     </div>
     <div class="logo-overlay">
-      <span class="logo-overlay-title" contenteditable="true">Safaricom</span>
+      <span class="logo-overlay-title" >Safaricom</span>
     </div>
   </div>
 
@@ -1891,37 +1887,6 @@
 
     function resetWaveHighlight(id) {
       document.querySelectorAll(`#waveform-${id} .wave-bar`).forEach(b => b.classList.remove('active'));
-    }
-
-    // ===== PORTFOLIO IMAGE REPLACE =====
-    function replacePortfolioImage(input, idx) {
-      if (!input.files || !input.files[0]) return;
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const wrap = document.getElementById('img-wrap-' + idx);
-        wrap.innerHTML = '';
-        const img = document.createElement('img');
-        img.src = e.target.result;
-        img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
-        wrap.appendChild(img);
-      };
-      reader.readAsDataURL(file);
-    }
-    
-    // ===== LOGO IMAGE REPLACE =====
-    function replaceLogoImage(input, idx) {
-      if (!input.files || !input.files[0]) return;
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const img = document.getElementById('logo-img-' + idx);
-        const placeholder = document.getElementById('logo-placeholder-' + idx);
-        img.src = e.target.result;
-        img.style.display = 'block';
-        if (placeholder) placeholder.style.display = 'none';
-      };
-      reader.readAsDataURL(file);
     }
 
     // ===== CONTACT FORM =====
